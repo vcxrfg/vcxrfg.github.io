@@ -6,151 +6,52 @@
   <title>Portofolio - Nama Kamu</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * {margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-    body {
-      background-color:#0f172a;
-      color:#f8fafc;
-      display:flex;
-      min-height:100vh;
-      flex-direction:column;
-      overflow-x:hidden;
-    }
-    header {
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-direction:column;
-      padding:60px 20px;
-      background:linear-gradient(135deg,#1e293b,#0f172a);
-      position:relative;
-    }
-    header img {
-      width:150px;
-      height:150px;
-      border-radius:50%;
-      border:4px solid #38bdf8;
-      object-fit:cover;
-      transition:transform 0.3s ease;
-    }
-    header img:hover {
-      transform:scale(1.05);
-    }
-    header h1 {
-      margin-top:15px;
-      font-size:2em;
-      font-weight:700;
-    }
-    header p {
-      color:#94a3b8;
-      margin-top:5px;
-    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+    body{background:#0f172a;color:#f8fafc;display:flex;flex-direction:column;min-height:100vh;overflow-x:hidden;}
+    header{display:flex;align-items:center;justify-content:center;flex-direction:column;padding:60px 20px;
+      background:linear-gradient(135deg,#1e293b,#0f172a);}
+    header img{width:150px;height:150px;border-radius:50%;border:4px solid #38bdf8;object-fit:cover;
+      transition:transform 0.3s ease;}
+    header img:hover{transform:scale(1.05);}
+    header h1{margin-top:15px;font-size:2em;font-weight:700;}
+    header p{color:#94a3b8;margin-top:5px;}
 
-    main {
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:20px;
-      padding:30px;
-    }
+    main{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;padding:30px;}
+    .sidebar{background:#1e293b;border-radius:15px;padding:25px;flex:1 1 260px;max-width:300px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.3);animation:slideInLeft 1s ease;}
+    .content{background:#1e293b;border-radius:15px;padding:30px;flex:3;min-width:300px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.3);animation:slideInRight 1s ease;}
 
-    .sidebar {
-      background:#1e293b;
-      border-radius:15px;
-      padding:25px;
-      flex:1 1 260px;
-      max-width:300px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.3);
-      animation:slideInLeft 1s ease;
-    }
+    @keyframes slideInLeft{from{transform:translateX(-50px);opacity:0;}to{transform:translateX(0);opacity:1;}}
+    @keyframes slideInRight{from{transform:translateX(50px);opacity:0;}to{transform:translateX(0);opacity:1;}}
 
-    .content {
-      background:#1e293b;
-      border-radius:15px;
-      padding:30px;
-      flex:3;
-      min-width:300px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.3);
-      animation:slideInRight 1s ease;
-    }
+    h2{color:#38bdf8;border-left:4px solid #38bdf8;padding-left:10px;margin-bottom:15px;font-size:1.2em;}
+    ul{list-style:none;margin-left:5px;}li{margin-bottom:8px;}
 
-    @keyframes slideInLeft {
-      from {transform:translateX(-50px);opacity:0;}
-      to {transform:translateX(0);opacity:1;}
-    }
-    @keyframes slideInRight {
-      from {transform:translateX(50px);opacity:0;}
-      to {transform:translateX(0);opacity:1;}
-    }
+    .skills span{background:#38bdf8;color:#0f172a;padding:6px 12px;border-radius:20px;margin:5px 5px 5px 0;
+      display:inline-block;font-weight:600;font-size:0.9em;transition:transform 0.2s ease;}
+    .skills span:hover{transform:scale(1.1);}
 
-    h2 {
-      color:#38bdf8;
-      border-left:4px solid #38bdf8;
-      padding-left:10px;
-      margin-bottom:15px;
-      font-size:1.2em;
-    }
+    .button{background:#38bdf8;color:#0f172a;padding:10px 18px;border-radius:25px;display:inline-block;
+      margin-top:10px;text-decoration:none;font-weight:600;transition:background 0.3s ease,transform 0.3s ease;}
+    .button:hover{background:#0ea5e9;transform:translateY(-2px);}
 
-    .skills span {
-      background:#38bdf8;
-      color:#0f172a;
-      padding:6px 12px;
-      border-radius:20px;
-      margin:5px 5px 5px 0;
-      display:inline-block;
-      font-weight:600;
-      font-size:0.9em;
-      transition:transform 0.2s ease;
-    }
-    .skills span:hover {
-      transform:scale(1.1);
-    }
-
-    ul {list-style:none;margin-left:5px;}
-    li {margin-bottom:8px;}
-
-    .button {
-      background:#38bdf8;
-      color:#0f172a;
-      padding:10px 18px;
-      border-radius:25px;
-      display:inline-block;
-      margin-top:10px;
-      text-decoration:none;
-      font-weight:600;
-      transition:background 0.3s ease, transform 0.3s ease;
-    }
-    .button:hover {
-      background:#0ea5e9;
-      transform:translateY(-2px);
-    }
-
-    .gallery {
+    .gallery,.certificates{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
       gap:10px;
       margin-top:10px;
     }
-    .gallery img {
-      width:100%;
-      border-radius:10px;
-      object-fit:cover;
-      height:120px;
-      transition:transform 0.3s ease;
+    .gallery img,.certificates img{
+      width:100%;border-radius:10px;object-fit:cover;height:120px;
+      transition:transform 0.3s ease,box-shadow 0.3s ease;cursor:pointer;
     }
-    .gallery img:hover {
-      transform:scale(1.05);
+    .gallery img:hover,.certificates img:hover{
+      transform:scale(1.05);box-shadow:0 0 12px #38bdf8;
     }
 
-    footer {
-      text-align:center;
-      color:#94a3b8;
-      padding:20px;
-      font-size:0.9em;
-    }
-
-    @media (max-width:768px){
-      main{flex-direction:column;}
-    }
+    footer{text-align:center;color:#94a3b8;padding:20px;font-size:0.9em;}
+    @media(max-width:768px){main{flex-direction:column;}}
   </style>
 </head>
 <body>
@@ -194,10 +95,10 @@
         <h2>Pengalaman Kerja</h2>
         <p><strong>PT Pass Internet Indonesia</strong> — Teknisi Lapangan (PKL)</p>
         <ul>
-          <li>Melaksanakan instalasi jaringan <strong>FTTH</strong> dari ODP hingga rumah pelanggan.</li>
-          <li>Mengoperasikan <strong>splicing machine</strong> untuk penyambungan kabel serat optik.</li>
-          <li>Melakukan konfigurasi <strong>perangkat ONT</strong> mencakup pengaturan SSID, password Wi-Fi, dan autentikasi PPPoE.</li>
-          <li>Memasang dan menata <strong>ODP 12 core</strong> pada area distribusi.</li>
+          <li>Melaksanakan instalasi jaringan FTTH dari ODP hingga rumah pelanggan.</li>
+          <li>Mengoperasikan splicing machine untuk penyambungan kabel serat optik.</li>
+          <li>Melakukan konfigurasi perangkat ONT mencakup pengaturan SSID, password Wi-Fi, dan autentikasi PPPoE.</li>
+          <li>Memasang dan menata ODP 12 core pada area distribusi.</li>
           <li>Mendukung promosi lapangan dengan pembagian brosur dan komunikasi dengan calon pelanggan.</li>
         </ul>
 
@@ -206,8 +107,8 @@
         <p><strong>J&T Express</strong> — Freelance Logistik</p>
         <ul>
           <li>Menangani proses bongkar muat paket dari kendaraan ke area konveyor penyortiran.</li>
-          <li>Mengelompokkan paket sesuai <strong>kode area pengiriman</strong> agar distribusi tepat sasaran.</li>
-          <li>Melakukan <strong>pemindaian barcode</strong> untuk memastikan data paket tercatat akurat dalam sistem.</li>
+          <li>Mengelompokkan paket sesuai kode area pengiriman agar distribusi tepat sasaran.</li>
+          <li>Melakukan pemindaian barcode untuk memastikan data paket tercatat akurat dalam sistem.</li>
           <li>Bekerja dalam tim dengan ritme cepat dan menjaga efisiensi operasional.</li>
         </ul>
       </section>
@@ -218,6 +119,16 @@
           <img src="foto1.jpg" alt="Dokumentasi 1">
           <img src="foto2.jpg" alt="Dokumentasi 2">
           <img src="foto3.jpg" alt="Dokumentasi 3">
+        </div>
+      </section>
+
+      <section>
+        <h2>Sertifikasi</h2>
+        <p>Beberapa sertifikat yang telah saya peroleh sebagai bukti kompetensi di bidang jaringan dan teknologi.</p>
+        <div class="certificates">
+          <img src="sertifikat-mtcna.jpg" alt="Sertifikat MTCNA">
+          <img src="sertifikat-ftth.jpg" alt="Sertifikat FTTH">
+          <img src="sertifikat-lain.jpg" alt="Sertifikat Lainnya">
         </div>
       </section>
     </div>
