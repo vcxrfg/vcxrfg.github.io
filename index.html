@@ -3,150 +3,228 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV & Portofolio - Nama Kamu</title>
+  <title>Portofolio - Nama Kamu</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    * {margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
     body {
-      background-color: #0f172a;
-      color: #f1f5f9;
-      line-height: 1.6;
-      font-size: 16px;
+      background-color:#0f172a;
+      color:#f8fafc;
+      display:flex;
+      min-height:100vh;
+      flex-direction:column;
+      overflow-x:hidden;
     }
     header {
-      text-align: center;
-      padding: 80px 20px 50px;
-      background: linear-gradient(135deg, #1e293b, #0f172a);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      padding:60px 20px;
+      background:linear-gradient(135deg,#1e293b,#0f172a);
+      position:relative;
     }
     header img {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      border: 3px solid #38bdf8;
-      margin-bottom: 20px;
+      width:150px;
+      height:150px;
+      border-radius:50%;
+      border:4px solid #38bdf8;
+      object-fit:cover;
+      transition:transform 0.3s ease;
     }
-    header h1 { font-size: 2.2em; font-weight: 700; }
-    header p { color: #94a3b8; margin-top: 5px; }
+    header img:hover {
+      transform:scale(1.05);
+    }
+    header h1 {
+      margin-top:15px;
+      font-size:2em;
+      font-weight:700;
+    }
+    header p {
+      color:#94a3b8;
+      margin-top:5px;
+    }
 
-    main { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+    main {
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:20px;
+      padding:30px;
+    }
 
-    section {
-      background-color: #1e293b;
-      border-radius: 12px;
-      padding: 25px 30px;
-      margin-bottom: 25px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    .sidebar {
+      background:#1e293b;
+      border-radius:15px;
+      padding:25px;
+      flex:1 1 260px;
+      max-width:300px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.3);
+      animation:slideInLeft 1s ease;
+    }
+
+    .content {
+      background:#1e293b;
+      border-radius:15px;
+      padding:30px;
+      flex:3;
+      min-width:300px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.3);
+      animation:slideInRight 1s ease;
+    }
+
+    @keyframes slideInLeft {
+      from {transform:translateX(-50px);opacity:0;}
+      to {transform:translateX(0);opacity:1;}
+    }
+    @keyframes slideInRight {
+      from {transform:translateX(50px);opacity:0;}
+      to {transform:translateX(0);opacity:1;}
     }
 
     h2 {
-      color: #38bdf8;
-      border-left: 4px solid #38bdf8;
-      padding-left: 10px;
-      margin-bottom: 15px;
-      font-size: 1.3em;
+      color:#38bdf8;
+      border-left:4px solid #38bdf8;
+      padding-left:10px;
+      margin-bottom:15px;
+      font-size:1.2em;
     }
 
-    ul { list-style: none; }
-    li { margin-bottom: 8px; }
-
     .skills span {
-      background: #38bdf8;
-      color: #0f172a;
-      padding: 6px 12px;
-      border-radius: 20px;
-      margin: 5px;
-      display: inline-block;
-      font-weight: 600;
-      font-size: 0.9em;
+      background:#38bdf8;
+      color:#0f172a;
+      padding:6px 12px;
+      border-radius:20px;
+      margin:5px 5px 5px 0;
+      display:inline-block;
+      font-weight:600;
+      font-size:0.9em;
+      transition:transform 0.2s ease;
+    }
+    .skills span:hover {
+      transform:scale(1.1);
+    }
+
+    ul {list-style:none;margin-left:5px;}
+    li {margin-bottom:8px;}
+
+    .button {
+      background:#38bdf8;
+      color:#0f172a;
+      padding:10px 18px;
+      border-radius:25px;
+      display:inline-block;
+      margin-top:10px;
+      text-decoration:none;
+      font-weight:600;
+      transition:background 0.3s ease, transform 0.3s ease;
+    }
+    .button:hover {
+      background:#0ea5e9;
+      transform:translateY(-2px);
+    }
+
+    .gallery {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+      gap:10px;
+      margin-top:10px;
+    }
+    .gallery img {
+      width:100%;
+      border-radius:10px;
+      object-fit:cover;
+      height:120px;
+      transition:transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform:scale(1.05);
     }
 
     footer {
-      text-align: center;
-      padding: 20px;
-      color: #94a3b8;
-      font-size: 0.9em;
-      border-top: 1px solid #334155;
+      text-align:center;
+      color:#94a3b8;
+      padding:20px;
+      font-size:0.9em;
     }
 
-    a { color: #38bdf8; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.6em; }
-      section { padding: 20px; }
+    @media (max-width:768px){
+      main{flex-direction:column;}
     }
   </style>
 </head>
 <body>
-
   <header>
-    <img src="https://via.placeholder.com/130" alt="Foto Profil">
+    <img src="foto.jpg" alt="Foto Profil">
     <h1>Nama Kamu</h1>
-    <p>Teknisi Jaringan | Logistik | Web Enthusiast</p>
+    <p>Teknisi Jaringan & Operator Logistik</p>
   </header>
 
   <main>
-    <section>
-      <h2>Tentang Saya</h2>
-      <p>Saya merupakan individu yang memiliki ketertarikan tinggi di bidang jaringan komputer dan operasional logistik. Terbiasa bekerja di lapangan dengan disiplin, tanggung jawab, dan ketelitian tinggi. Berpengalaman dalam instalasi jaringan fiber optic hingga proses distribusi dan penyortiran paket di industri ekspedisi. Memiliki semangat belajar dan kemampuan beradaptasi yang baik terhadap lingkungan kerja baru.</p>
-    </section>
-
-    <section>
-      <h2>Pengalaman</h2>
-
-      <p><strong>PT Pass Internet Indonesia</strong> — Teknisi Lapangan (Praktik Kerja Lapangan)</p>
-      <ul>
-        <li>Melakukan instalasi jaringan <strong>Fiber To The Home (FTTH)</strong> dari titik distribusi (ODP) hingga ke rumah pelanggan.</li>
-        <li>Menyambungkan kabel serat optik menggunakan <strong>splicing machine</strong> dan memastikan hasil sambungan sesuai standar.</li>
-        <li>Melakukan konfigurasi perangkat <strong>ONT</strong>, termasuk pengaturan SSID, kata sandi Wi-Fi, serta autentikasi akun <strong>PPPoE</strong>.</li>
-        <li>Berpartisipasi dalam pemasangan dan penataan <strong>ODP 12 core</strong> di area distribusi pelanggan.</li>
-        <li>Mendukung kegiatan promosi lapangan dengan menyebarkan brosur serta memberikan informasi layanan kepada calon pelanggan di area pemukiman.</li>
-      </ul>
-
-      <br>
-
-      <p><strong>J&T Express</strong> — Freelance Logistik</p>
-      <ul>
-        <li>Melakukan proses bongkar muat paket dari truk pengiriman ke <strong>konveyor</strong> untuk selanjutnya disortir sesuai area tujuan.</li>
-        <li>Melakukan <strong>penyortiran paket</strong> berdasarkan kode wilayah (seperti BDO, SOG, dan lainnya) guna memastikan pengiriman sesuai rute.</li>
-        <li>Mengerjakan proses <strong>pemindaian barcode paket</strong> agar setiap item terdaftar dengan akurat di sistem pelacakan.</li>
-        <li>Bekerja sama dalam tim dengan ritme kerja cepat dan fokus pada ketepatan serta efisiensi operasional.</li>
-      </ul>
-    </section>
-
-    <section class="skills">
-      <h2>Kemampuan</h2>
-      <span>Fiber Optic Installation</span>
-      <span>Splicing Cable</span>
-      <span>ONT Configuration</span>
-      <span>PPPoE Setup</span>
-      <span>Networking</span>
-      <span>Package Sorting</span>
-      <span>Barcode Scanning</span>
-      <span>Warehouse Operations</span>
-      <span>Teamwork</span>
-      <span>Discipline</span>
-      <span>Web Basics (HTML & CSS)</span>
-    </section>
-
-    <section>
-      <h2>Pendidikan</h2>
-      <ul>
-        <li><strong>SMK Negeri Contoh</strong> — Teknik Komputer dan Jaringan (2020 - 2023)</li>
-      </ul>
-    </section>
-
-    <section>
+    <div class="sidebar">
       <h2>Kontak</h2>
-      <p>Email: <a href="mailto:emailkamu@gmail.com">emailkamu@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/username" target="_blank">github.com/username</a></p>
-      <p>LinkedIn: <a href="#" target="_blank">linkedin.com/in/username</a></p>
-    </section>
+      <p>Email: <a href="mailto:emailkamu@gmail.com" style="color:#38bdf8;">emailkamu@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/username" target="_blank" style="color:#38bdf8;">github.com/username</a></p>
+      <p>LinkedIn: <a href="#" target="_blank" style="color:#38bdf8;">linkedin.com/in/username</a></p>
+      <a href="mailto:emailkamu@gmail.com" class="button">Hubungi Saya</a>
+
+      <br><br>
+      <h2>Kemampuan</h2>
+      <div class="skills">
+        <span>Fiber Optic Installation</span>
+        <span>Splicing Cable</span>
+        <span>ONT Configuration</span>
+        <span>PPPoE Setup</span>
+        <span>Networking</span>
+        <span>Package Sorting</span>
+        <span>Barcode Scanning</span>
+        <span>Warehouse Operations</span>
+        <span>Teamwork</span>
+        <span>Discipline</span>
+      </div>
+    </div>
+
+    <div class="content">
+      <section>
+        <h2>Tentang Saya</h2>
+        <p>Saya memiliki ketertarikan pada bidang teknologi jaringan dan logistik operasional. Berpengalaman dalam instalasi jaringan fiber optic hingga proses distribusi dan penyortiran barang. Terbiasa bekerja di lapangan, beradaptasi cepat, dan menjaga ketelitian dalam setiap pekerjaan.</p>
+      </section>
+
+      <section>
+        <h2>Pengalaman Kerja</h2>
+        <p><strong>PT Pass Internet Indonesia</strong> — Teknisi Lapangan (PKL)</p>
+        <ul>
+          <li>Melaksanakan instalasi jaringan <strong>FTTH</strong> dari ODP hingga rumah pelanggan.</li>
+          <li>Mengoperasikan <strong>splicing machine</strong> untuk penyambungan kabel serat optik.</li>
+          <li>Melakukan konfigurasi <strong>perangkat ONT</strong> mencakup pengaturan SSID, password Wi-Fi, dan autentikasi PPPoE.</li>
+          <li>Memasang dan menata <strong>ODP 12 core</strong> pada area distribusi.</li>
+          <li>Mendukung promosi lapangan dengan pembagian brosur dan komunikasi dengan calon pelanggan.</li>
+        </ul>
+
+        <br>
+
+        <p><strong>J&T Express</strong> — Freelance Logistik</p>
+        <ul>
+          <li>Menangani proses bongkar muat paket dari kendaraan ke area konveyor penyortiran.</li>
+          <li>Mengelompokkan paket sesuai <strong>kode area pengiriman</strong> agar distribusi tepat sasaran.</li>
+          <li>Melakukan <strong>pemindaian barcode</strong> untuk memastikan data paket tercatat akurat dalam sistem.</li>
+          <li>Bekerja dalam tim dengan ritme cepat dan menjaga efisiensi operasional.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Galeri Dokumentasi</h2>
+        <div class="gallery">
+          <img src="foto1.jpg" alt="Dokumentasi 1">
+          <img src="foto2.jpg" alt="Dokumentasi 2">
+          <img src="foto3.jpg" alt="Dokumentasi 3">
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer>
-    &copy; 2025 Nama Kamu. Dibuat dengan ❤️ di GitHub Pages.
+    &copy; 2025 Nama Kamu. Dibuat dengan ❤️ menggunakan GitHub Pages.
   </footer>
-
 </body>
 </html>
