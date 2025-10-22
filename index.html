@@ -11,7 +11,7 @@
     header{display:flex;align-items:center;justify-content:center;flex-direction:column;padding:60px 20px;
       background:linear-gradient(135deg,#1e293b,#0f172a);}
     header img{width:150px;height:150px;border-radius:50%;border:4px solid #38bdf8;object-fit:cover;
-      transition:transform 0.3s ease;}
+      transition:transform 0.3s ease,cursor 0.3s ease;cursor:pointer;}
     header img:hover{transform:scale(1.05);}
     header h1{margin-top:15px;font-size:2em;font-weight:700;}
     header p{color:#94a3b8;margin-top:5px;}
@@ -52,11 +52,25 @@
 
     footer{text-align:center;color:#94a3b8;padding:20px;font-size:0.9em;}
     @media(max-width:768px){main{flex-direction:column;}}
+
+    /* Pop-up fullscreen image */
+    .popup{
+      display:none;position:fixed;z-index:999;left:0;top:0;width:100%;height:100%;
+      background:rgba(0,0,0,0.9);justify-content:center;align-items:center;
+    }
+    .popup img{
+      max-width:90%;max-height:90%;border-radius:10px;box-shadow:0 0 25px rgba(56,189,248,0.6);
+    }
+    .popup span{
+      position:absolute;top:20px;right:35px;color:#fff;font-size:40px;cursor:pointer;font-weight:bold;
+      transition:color 0.3s ease;
+    }
+    .popup span:hover{color:#38bdf8;}
   </style>
 </head>
 <body>
   <header>
-    <img src="foto.jpg" alt="Foto Profil">
+    <img src="foto.jpg" alt="Foto Profil" onclick="openPopup(this.src)">
     <h1>Rasya Ramadhan Sugandi</h1>
     <p>Teknisi Jaringan & Operator Logistik</p>
   </header>
@@ -64,10 +78,10 @@
   <main>
     <div class="sidebar">
       <h2>Kontak</h2>
-      <p>Email: <a href="mailto:rasyavramadhan@gmail.com" style="color:#38bdf8;">rasyavramadhan@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/vcxrfg" target="_blank" style="color:#38bdf8;">github.com/vcxrfg</a></p>
+      <p>Email: <a href="mailto:emailkamu@gmail.com" style="color:#38bdf8;">emailkamu@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/username" target="_blank" style="color:#38bdf8;">github.com/username</a></p>
       <p>LinkedIn: <a href="#" target="_blank" style="color:#38bdf8;">linkedin.com/in/username</a></p>
-      <a href="mailto:rasyavramadhan@gmail.com" class="button">Hubungi Saya</a>
+      <a href="mailto:emailkamu@gmail.com" class="button">Hubungi Saya</a>
 
       <br><br>
       <h2>Kemampuan</h2>
@@ -75,20 +89,32 @@
         <span>Fiber Optic Installation</span>
         <span>Splicing Cable</span>
         <span>ONT Configuration</span>
+        <span>LAN Crimping</span>
         <span>PPPoE Setup</span>
         <span>Networking</span>
         <span>Package Sorting</span>
         <span>Barcode Scanning</span>
         <span>Warehouse Operations</span>
         <span>Teamwork</span>
-        <span>Discipline</span>
       </div>
     </div>
 
     <div class="content">
       <section>
         <h2>Tentang Saya</h2>
-        <p>Saya memiliki ketertarikan pada bidang teknologi jaringan dan logistik operasional. Berpengalaman dalam instalasi jaringan fiber optic hingga proses distribusi dan penyortiran barang. Terbiasa bekerja di lapangan, beradaptasi cepat, dan menjaga ketelitian dalam setiap pekerjaan.</p>
+        <p>Saya memiliki ketertarikan besar pada bidang jaringan dan teknologi informasi, serta pengalaman lapangan dalam instalasi jaringan fiber optic dan kegiatan logistik operasional. Saya terbiasa bekerja dengan ketelitian tinggi, adaptif terhadap situasi lapangan, dan mampu bekerja dalam tim maupun mandiri.</p>
+      </section>
+
+      <section>
+        <h2>Pendidikan</h2>
+        <ul>
+          <li><strong>SMK BPPI Baleendah</strong> — Jurusan Teknik Komputer Jaringan dan Telekomunikasi</li>
+          <li>Lulus tahun 2026</li>
+          <li><strong>MTS Persis 03 Pameungpeuk</strong></li>
+          <li>Lulus tahun 2023</li>
+          <li><strong>SDN 01 Rancamanyar</strong></li>
+          <li>Lulus tahun 2020</li>
+        </ul>
       </section>
 
       <section>
@@ -96,10 +122,11 @@
         <p><strong>PT Pass Internet Indonesia</strong> — Teknisi Lapangan (PKL)</p>
         <ul>
           <li>Melaksanakan instalasi jaringan FTTH dari ODP hingga rumah pelanggan.</li>
-          <li>Mengoperasikan splicing machine untuk penyambungan kabel serat optik.</li>
-          <li>Melakukan konfigurasi perangkat ONT mencakup pengaturan SSID, password Wi-Fi, dan autentikasi PPPoE.</li>
-          <li>Memasang dan menata ODP 12 core pada area distribusi.</li>
-          <li>Mendukung promosi lapangan dengan pembagian brosur dan komunikasi dengan calon pelanggan.</li>
+          <li>Mengoperasikan mesin splicing untuk penyambungan kabel serat optik.</li>
+          <li>Melakukan konfigurasi perangkat ONT, termasuk pengaturan SSID, password Wi-Fi, dan PPPoE.</li>
+          <li>Melakukan crimping konektor RJ45 untuk kabel LAN pelanggan.</li>
+          <li>Memasang dan menata ODP 12 core di area distribusi jaringan.</li>
+          <li>Membantu promosi layanan dengan pembagian brosur dan komunikasi langsung ke calon pelanggan.</li>
         </ul>
 
         <br>
@@ -107,28 +134,28 @@
         <p><strong>J&T Express</strong> — Freelance Logistik</p>
         <ul>
           <li>Menangani proses bongkar muat paket dari kendaraan ke area konveyor penyortiran.</li>
-          <li>Mengelompokkan paket sesuai kode area pengiriman agar distribusi tepat sasaran.</li>
-          <li>Melakukan pemindaian barcode untuk memastikan data paket tercatat akurat dalam sistem.</li>
-          <li>Bekerja dalam tim dengan ritme cepat dan menjaga efisiensi operasional.</li>
+          <li>Mengelompokkan paket sesuai kode area pengiriman agar distribusi lebih cepat dan tepat.</li>
+          <li>Melakukan pemindaian barcode untuk mencatat data paket dengan akurat.</li>
+          <li>Bekerja dalam tim dengan ritme cepat dan tetap menjaga ketelitian.</li>
         </ul>
       </section>
 
       <section>
         <h2>Galeri Dokumentasi</h2>
         <div class="gallery">
-          <img src="foto1.jpg" alt="Dokumentasi 1">
-          <img src="foto2.jpg" alt="Dokumentasi 2">
-          <img src="foto3.jpg" alt="Dokumentasi 3">
+          <img src="foto1.jpg" alt="Dokumentasi 1" onclick="openPopup(this.src)">
+          <img src="foto2.jpg" alt="Dokumentasi 2" onclick="openPopup(this.src)">
+          <img src="foto3.jpg" alt="Dokumentasi 3" onclick="openPopup(this.src)">
         </div>
       </section>
 
       <section>
         <h2>Sertifikasi</h2>
-        <p>Beberapa sertifikat yang telah saya peroleh sebagai bukti kompetensi di bidang jaringan dan teknologi.</p>
+        <p>Beberapa sertifikat yang saya miliki sebagai bukti kompetensi di bidang jaringan dan teknologi.</p>
         <div class="certificates">
-          <img src="sertifikat-mtcna.jpg" alt="Sertifikat MTCNA">
-          <img src="sertifikat-ftth.jpg" alt="Sertifikat FTTH">
-          <img src="sertifikat-lain.jpg" alt="Sertifikat Lainnya">
+          <img src="sertifikat-mtcna.jpg" alt="Sertifikat MTCNA" onclick="openPopup(this.src)">
+          <img src="sertifikat-ftth.jpg" alt="Sertifikat FTTH" onclick="openPopup(this.src)">
+          <img src="sertifikat-lain.jpg" alt="Sertifikat Lain" onclick="openPopup(this.src)">
         </div>
       </section>
     </div>
@@ -137,5 +164,21 @@
   <footer>
     &copy; 2025 Rasya Ramadhan Sugandi
   </footer>
+
+  <!-- Popup Viewer -->
+  <div class="popup" id="popup" onclick="closePopup()">
+    <span>&times;</span>
+    <img id="popupImg" src="">
+  </div>
+
+  <script>
+    function openPopup(src){
+      document.getElementById("popupImg").src = src;
+      document.getElementById("popup").style.display = "flex";
+    }
+    function closePopup(){
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
 </body>
 </html>
