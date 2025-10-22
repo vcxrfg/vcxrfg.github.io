@@ -3,111 +3,150 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portofolio Saya</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <title>CV & Portofolio - Nama Kamu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
     body {
-      background: linear-gradient(135deg, #141e30, #243b55);
-      color: #fff;
+      background-color: #0f172a;
+      color: #f1f5f9;
       line-height: 1.6;
-      padding: 0 20px;
+      font-size: 16px;
     }
     header {
       text-align: center;
-      padding: 60px 0 30px;
+      padding: 80px 20px 50px;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
     }
     header img {
       width: 130px;
       height: 130px;
       border-radius: 50%;
-      border: 3px solid #00bcd4;
+      border: 3px solid #38bdf8;
       margin-bottom: 20px;
     }
-    header h1 { font-size: 2em; }
-    header p { color: #ccc; }
+    header h1 { font-size: 2.2em; font-weight: 700; }
+    header p { color: #94a3b8; margin-top: 5px; }
+
+    main { max-width: 900px; margin: 40px auto; padding: 0 20px; }
 
     section {
-      background: rgba(255,255,255,0.05);
-      border-radius: 10px;
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 800px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      background-color: #1e293b;
+      border-radius: 12px;
+      padding: 25px 30px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
     h2 {
-      border-bottom: 2px solid #00bcd4;
-      display: inline-block;
-      margin-bottom: 10px;
+      color: #38bdf8;
+      border-left: 4px solid #38bdf8;
+      padding-left: 10px;
+      margin-bottom: 15px;
+      font-size: 1.3em;
     }
 
-    ul { list-style: none; padding-left: 10px; }
+    ul { list-style: none; }
     li { margin-bottom: 8px; }
 
     .skills span {
-      background: #00bcd4;
-      color: #000;
-      padding: 5px 10px;
+      background: #38bdf8;
+      color: #0f172a;
+      padding: 6px 12px;
       border-radius: 20px;
       margin: 5px;
       display: inline-block;
+      font-weight: 600;
+      font-size: 0.9em;
     }
 
     footer {
       text-align: center;
-      margin: 30px 0;
-      color: #bbb;
+      padding: 20px;
+      color: #94a3b8;
       font-size: 0.9em;
+      border-top: 1px solid #334155;
     }
 
-    a { color: #00bcd4; text-decoration: none; }
+    a { color: #38bdf8; text-decoration: none; }
     a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.6em; }
+      section { padding: 20px; }
+    }
   </style>
 </head>
 <body>
+
   <header>
     <img src="https://via.placeholder.com/130" alt="Foto Profil">
     <h1>Nama Kamu</h1>
-    <p>Web Developer | Designer | Freelancer</p>
+    <p>Teknisi Jaringan | Logistik | Web Enthusiast</p>
   </header>
 
-  <section>
-    <h2>Tentang Saya</h2>
-    <p>Saya adalah pengembang web dengan minat tinggi dalam membuat website modern, cepat, dan menarik. Senang mempelajari teknologi baru dan bekerja dalam tim maupun individu.</p>
-  </section>
+  <main>
+    <section>
+      <h2>Tentang Saya</h2>
+      <p>Saya merupakan individu yang memiliki ketertarikan tinggi di bidang jaringan komputer dan operasional logistik. Terbiasa bekerja di lapangan dengan disiplin, tanggung jawab, dan ketelitian tinggi. Berpengalaman dalam instalasi jaringan fiber optic hingga proses distribusi dan penyortiran paket di industri ekspedisi. Memiliki semangat belajar dan kemampuan beradaptasi yang baik terhadap lingkungan kerja baru.</p>
+    </section>
 
-  <section>
-    <h2>Pendidikan</h2>
-    <ul>
-      <li><strong>SMK Negeri Contoh</strong> - Teknik Komputer dan Jaringan (2020 - 2023)</li>
-      <li><strong>Universitas Contoh</strong> - Informatika (2023 - Sekarang)</li>
-    </ul>
-  </section>
+    <section>
+      <h2>Pengalaman</h2>
 
-  <section>
-    <h2>Pengalaman</h2>
-    <ul>
-      <li><strong>Freelancer</strong> - Mengerjakan website untuk UMKM dan toko online kecil (2022 - sekarang)</li>
-      <li><strong>Magang di PT Contoh</strong> - Membantu pembuatan sistem inventory berbasis web (2021)</li>
-    </ul>
-  </section>
+      <p><strong>PT Pass Internet Indonesia</strong> — Teknisi Lapangan (Praktik Kerja Lapangan)</p>
+      <ul>
+        <li>Melakukan instalasi jaringan <strong>Fiber To The Home (FTTH)</strong> dari titik distribusi (ODP) hingga ke rumah pelanggan.</li>
+        <li>Menyambungkan kabel serat optik menggunakan <strong>splicing machine</strong> dan memastikan hasil sambungan sesuai standar.</li>
+        <li>Melakukan konfigurasi perangkat <strong>ONT</strong>, termasuk pengaturan SSID, kata sandi Wi-Fi, serta autentikasi akun <strong>PPPoE</strong>.</li>
+        <li>Berpartisipasi dalam pemasangan dan penataan <strong>ODP 12 core</strong> di area distribusi pelanggan.</li>
+        <li>Mendukung kegiatan promosi lapangan dengan menyebarkan brosur serta memberikan informasi layanan kepada calon pelanggan di area pemukiman.</li>
+      </ul>
 
-  <section class="skills">
-    <h2>Kemampuan</h2>
-    <span>HTML</span><span>CSS</span><span>JavaScript</span>
-    <span>PHP</span><span>Python</span><span>Bootstrap</span>
-  </section>
+      <br>
 
-  <section>
-    <h2>Kontak</h2>
-    <p>Email: <a href="mailto:emailkamu@gmail.com">emailkamu@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/username" target="_blank">github.com/username</a></p>
-    <p>LinkedIn: <a href="#" target="_blank">linkedin.com/in/username</a></p>
-  </section>
+      <p><strong>J&T Express</strong> — Freelance Logistik</p>
+      <ul>
+        <li>Melakukan proses bongkar muat paket dari truk pengiriman ke <strong>konveyor</strong> untuk selanjutnya disortir sesuai area tujuan.</li>
+        <li>Melakukan <strong>penyortiran paket</strong> berdasarkan kode wilayah (seperti BDO, SOG, dan lainnya) guna memastikan pengiriman sesuai rute.</li>
+        <li>Mengerjakan proses <strong>pemindaian barcode paket</strong> agar setiap item terdaftar dengan akurat di sistem pelacakan.</li>
+        <li>Bekerja sama dalam tim dengan ritme kerja cepat dan fokus pada ketepatan serta efisiensi operasional.</li>
+      </ul>
+    </section>
+
+    <section class="skills">
+      <h2>Kemampuan</h2>
+      <span>Fiber Optic Installation</span>
+      <span>Splicing Cable</span>
+      <span>ONT Configuration</span>
+      <span>PPPoE Setup</span>
+      <span>Networking</span>
+      <span>Package Sorting</span>
+      <span>Barcode Scanning</span>
+      <span>Warehouse Operations</span>
+      <span>Teamwork</span>
+      <span>Discipline</span>
+      <span>Web Basics (HTML & CSS)</span>
+    </section>
+
+    <section>
+      <h2>Pendidikan</h2>
+      <ul>
+        <li><strong>SMK Negeri Contoh</strong> — Teknik Komputer dan Jaringan (2020 - 2023)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Kontak</h2>
+      <p>Email: <a href="mailto:emailkamu@gmail.com">emailkamu@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/username" target="_blank">github.com/username</a></p>
+      <p>LinkedIn: <a href="#" target="_blank">linkedin.com/in/username</a></p>
+    </section>
+  </main>
 
   <footer>
-    &copy; 2025 Nama Kamu. Dibuat dengan ❤️ menggunakan GitHub Pages.
+    &copy; 2025 Nama Kamu. Dibuat dengan ❤️ di GitHub Pages.
   </footer>
+
 </body>
 </html>
